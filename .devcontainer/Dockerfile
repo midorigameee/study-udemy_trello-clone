@@ -42,6 +42,6 @@ RUN git config --global core.quotepath false
 RUN git config --global push.default current
 
 ### node_modulesを予め用意しておく設定（まだ最適な設定方法がわかってない…）
-# WORKDIR /workspace/xxxx
+# WORKDIR /workspace
 # COPY ./xxxx/package*.json /workspace/xxxx
 # RUN npm install

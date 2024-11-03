@@ -1,5 +1,5 @@
 {
-  "name": "NodeContainer",
+  "name": "TrelloClone",
   "build": {
     "dockerfile": "./Dockerfile"
   },
@@ -12,11 +12,11 @@
       "target": "/workspace"
     },
     // Nodeのプロジェクト作ったらその階層に合わせて設定する
-    // {
-    //   "type": "volume",
-    //   "source": "node_modules_xxxx",
-    //   "target": "/workspace/xxxx/node_modules"
-    // }
+    {
+      "type": "volume",
+      "source": "node_modules_trello",
+      "target": "/workspace/node_modules"
+    }
   ],
   "customizations": {
     "vscode": {
@@ -36,7 +36,7 @@
       ],
       "settings": {
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
       }
     }
   }
