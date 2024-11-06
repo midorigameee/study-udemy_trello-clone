@@ -17,7 +17,7 @@ export const TaskCard = () => {
         taskList={taskList}
         setTaskList={setTaskList}
       />
-      <Tasks inputText={inputText} taskList={taskList} />
+      <Tasks taskList={taskList} setTaskList={setTaskList} />
     </div>
   );
 };
