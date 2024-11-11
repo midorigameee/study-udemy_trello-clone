@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuid } from "uuid";
 
 export const TaskAddInput = ({
   inputText,
@@ -10,6 +11,9 @@ export const TaskAddInput = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const taskId = uuid();
+
+    // 未記入およびスペースのみの場合はタスク追加しない
     const regSpace = /^\s+?$/;
     if (inputText === "" || regSpace.test(inputText)) {
       return;
@@ -18,7 +22,14 @@ export const TaskAddInput = ({
     // カードを追加
     // ...でスプレッド構文として元の配列の中身を展開して格納する
     // つまり、今までの内容を追加しつつ、今回新しく入力された内容も追加する、ということ。
-    setTaskList([...taskList, { id: taskList.length, text: inputText }]);
+    setTaskList([
+      ...taskList,
+      {
+        id: taskId,
+        draggableId: `task-${taskId}`,
+        text: inputText,
+      },
+    ]);
 
     // taskList更新後はinput内の文字を消す
     setInputText("");
